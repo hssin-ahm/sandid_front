@@ -26,6 +26,9 @@ export class AuthServiceService {
   getCurrentUserId(): string | null {
     return localStorage.getItem('userId');
   }
+  getUserById(userId: any): Observable<any> {
+    return this.http.get(this.apiUrl + '/user/' + userId);
+  }
 
   isLoggedIn(): boolean {
     return !!this.getToken();

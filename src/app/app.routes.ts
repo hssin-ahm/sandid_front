@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { BaseComponent } from './views/layout/base/base.component';
 import { authGuard } from './core/guards/auth.guard';
 import { StarterComponent } from './views/features/starter/starter.component';
+import { ProfileComponent } from './views/features/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +24,10 @@ export const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
           import('./views/features/dashboard/dashboard.routes'),
+      },
+      {
+        path: 'profile/:id',
+        component: ProfileComponent,
       },
     ],
   },

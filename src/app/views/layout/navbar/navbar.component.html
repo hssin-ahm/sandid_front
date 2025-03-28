@@ -2,7 +2,7 @@
   <nav class="navbar top-navbar">
     <div class="container">
       <div class="navbar-content">
-    
+
         <!--- Logo -->
         <a routerLink="/" class="navbar-brand">
           Noble<span>UI</span>
@@ -17,7 +17,7 @@
           <img src="images/logo-mini-light.png" class="logo-mini logo-mini-light" alt="logo">
           <img src="images/logo-mini-dark.png" class="logo-mini logo-mini-dark" alt="logo">
         </div>
-    
+
         <form class="search-form">
           <div class="input-group">
             <div class="input-group-text">
@@ -26,7 +26,7 @@
             <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
           </div>
         </form>
-    
+
         <ul class="navbar-nav">
           <li class="theme-switcher-wrapper nav-item">
             <input type="checkbox" (change)="onThemeCheckboxChange($event)" value="" id="theme-switcher">
@@ -46,11 +46,16 @@
               <span class="ms-2 d-none d-md-inline-block">English</span>
             </a>
             <div ngbDropdownMenu aria-labelledby="languageDropdown">
-              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/us.svg" class="w-20px me-1" title="us" alt="us"> <span class="ms-2"> English </span></a>
-              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/fr.svg" class="w-20px me-1" title="fr" alt="fr"> <span class="ms-2"> French </span></a>
-              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/de.svg" class="w-20px me-1" title="de" alt="de"> <span class="ms-2"> German </span></a>
-              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/pt.svg" class="w-20px me-1" title="pt" alt="pt"> <span class="ms-2"> Portuguese </span></a>
-              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/es.svg" class="w-20px me-1" title="es" alt="es"> <span class="ms-2"> Spanish </span></a>
+              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/us.svg" class="w-20px me-1" title="us"
+                  alt="us"> <span class="ms-2"> English </span></a>
+              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/fr.svg" class="w-20px me-1" title="fr"
+                  alt="fr"> <span class="ms-2"> French </span></a>
+              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/de.svg" class="w-20px me-1" title="de"
+                  alt="de"> <span class="ms-2"> German </span></a>
+              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/pt.svg" class="w-20px me-1" title="pt"
+                  alt="pt"> <span class="ms-2"> Portuguese </span></a>
+              <a ngbDropdownItem class="py-2 d-flex"> <img src="images/flags/es.svg" class="w-20px me-1" title="es"
+                  alt="es"> <span class="ms-2"> Spanish </span></a>
             </div>
           </li>
           <li class="nav-item nav-apps" ngbDropdown>
@@ -64,16 +69,32 @@
               </div>
               <div class="row g-0 p-1">
                 <div class="col-3 text-center">
-                  <a routerLink="/apps/chat" class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i class="feather icon-message-square icon-lg mb-1"></i><p class="fs-12px">Chat</p></a>
+                  <a routerLink="/apps/chat"
+                    class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i
+                      class="feather icon-message-square icon-lg mb-1"></i>
+                    <p class="fs-12px">Chat</p>
+                  </a>
                 </div>
                 <div class="col-3 text-center">
-                  <a routerLink="/apps/calendar" class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i class="feather icon-calendar icon-lg mb-1"></i><p class="fs-12px">Calendar</p></a>
+                  <a routerLink="/apps/calendar"
+                    class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i
+                      class="feather icon-calendar icon-lg mb-1"></i>
+                    <p class="fs-12px">Calendar</p>
+                  </a>
                 </div>
                 <div class="col-3 text-center">
-                  <a routerLink="/apps/email/inbox" class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i class="feather icon-mail icon-lg mb-1"></i><p class="fs-12px">Email</p></a>
+                  <a routerLink="/apps/email/inbox"
+                    class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i
+                      class="feather icon-mail icon-lg mb-1"></i>
+                    <p class="fs-12px">Email</p>
+                  </a>
                 </div>
                 <div class="col-3 text-center">
-                  <a routerLink="/general/profile" class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i class="feather icon-instagram icon-lg mb-1"></i><p class="fs-12px">Profile</p></a>
+                  <a routerLink="/general/profile"
+                    class="dropdown-item d-flex flex-column align-items-center justify-content-center w-70px h-70px"><i
+                      class="feather icon-instagram icon-lg mb-1"></i>
+                    <p class="fs-12px">Profile</p>
+                  </a>
                 </div>
               </div>
               <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
@@ -101,7 +122,7 @@
                       <p class="fs-12px text-secondary">Project status</p>
                     </div>
                     <p class="fs-12px text-secondary">2 min ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
                   <div class="me-3">
@@ -113,7 +134,7 @@
                       <p class="fs-12px text-secondary">Client meeting</p>
                     </div>
                     <p class="fs-12px text-secondary">30 min ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
                   <div class="me-3">
@@ -125,7 +146,7 @@
                       <p class="fs-12px text-secondary">Project updates</p>
                     </div>
                     <p class="fs-12px text-secondary">1 hrs ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
                   <div class="me-3">
@@ -137,7 +158,7 @@
                       <p class="fs-12px text-secondary">Project deatline</p>
                     </div>
                     <p class="fs-12px text-secondary">2 hrs ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
                   <div class="me-3">
@@ -149,7 +170,7 @@
                       <p class="fs-12px text-secondary">New record</p>
                     </div>
                     <p class="fs-12px text-secondary">5 hrs ago</p>
-                  </div>	
+                  </div>
                 </a>
               </div>
               <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
@@ -171,49 +192,54 @@
               </div>
               <div class="p-1">
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                  <div class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                  <div
+                    class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                     <i class="feather icon-gift icon-sm text-white"></i>
                   </div>
                   <div class="flex-grow-1 me-2">
                     <p>New Order Recieved</p>
                     <p class="fs-12px text-secondary">30 min ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                  <div class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                  <div
+                    class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                     <i class="feather icon-alert-circle icon-sm text-white"></i>
                   </div>
                   <div class="flex-grow-1 me-2">
                     <p>Server Limit Reached!</p>
                     <p class="fs-12px text-secondary">1 hrs ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                  <div class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                  <div
+                    class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                     <img class="w-30px h-30px rounded-circle" src="https://placehold.co/30x30" alt="userr">
                   </div>
                   <div class="flex-grow-1 me-2">
                     <p>New customer registered</p>
                     <p class="fs-12px text-secondary">2 sec ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                  <div class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                  <div
+                    class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                     <i class="feather icon-layers icon-sm text-white"></i>
                   </div>
                   <div class="flex-grow-1 me-2">
                     <p>Apps are ready for update</p>
                     <p class="fs-12px text-secondary">5 hrs ago</p>
-                  </div>	
+                  </div>
                 </a>
                 <a href="" (click)="false" class="dropdown-item d-flex align-items-center py-2">
-                  <div class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                  <div
+                    class="w-30px h-30px d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
                     <i class="feather icon-download icon-sm text-white"></i>
                   </div>
                   <div class="flex-grow-1 me-2">
                     <p>Download completed</p>
                     <p class="fs-12px text-secondary">6 hrs ago</p>
-                  </div>	
+                  </div>
                 </a>
               </div>
               <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
@@ -266,113 +292,114 @@
         </ul>
 
         <!-- Navbar-menu-toggler on small devices (mobile/tablet) -->
-        <div data-toggle="horizontal-menu-toggle" class="navbar-toggler d-lg-none align-self-center" (click)="toggleHeaderMenu()">
+        <div data-toggle="horizontal-menu-toggle" class="navbar-toggler d-lg-none align-self-center"
+          (click)="toggleHeaderMenu()">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        
+
       </div>
     </div>
   </nav>
 
   <nav class="bottom-navbar">
-		<div class="container">
+    <div class="container">
 
       <!--- Menu -->
-			<ul class="nav page-navigation">
+      <ul class="nav page-navigation">
         @for (item of menuItems; track item.label) {
 
-          <!-- Nav item with a mega menu -->
-          @if (item.isMegaMenu) {
-            <li class="nav-item mega-menu" [routerLinkActive]="['active']" #navItemMegaMenu (click)="toggleSubmenuOnSmallDevices(navItemMegaMenu)" [ngClass]="{'show-submenu': currentlyOpenedNavItem === navItemMegaMenu}">
-              <a href="javascript:void(0);" class="nav-link">
-                @if (item.icon) {
-                  <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon></i>
-                }
-                <span class="menu-title">{{ item.label }}</span>
-                <i class="link-arrow"></i>
-              </a>
-              <div class="submenu">
-                <div class="row">
-                  @for (subMenu of item.subMenus; track $index) {
-                    <div class="col-md-3">
-                      <ul class="submenu-item">
-                        @for (subMenuItem of subMenu.subMenuItems; track subMenuItem.label) {
-                          @if (subMenuItem.isTitle) {
-                            <li class="category-heading">{{ subMenuItem.label }}</li>
-                          }
-                          @else {
-                            <li class="nav-item">
-                              <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="subMenuItem.link">{{ subMenuItem.label }}</a>
-                            </li>
-                          }
-                        }
-                      </ul>
-                    </div>
+        <!-- Nav item with a mega menu -->
+        @if (item.isMegaMenu) {
+        <li class="nav-item mega-menu" [routerLinkActive]="['active']" #navItemMegaMenu
+          (click)="toggleSubmenuOnSmallDevices(navItemMegaMenu)"
+          [ngClass]="{'show-submenu': currentlyOpenedNavItem === navItemMegaMenu}">
+          <a href="javascript:void(0);" class="nav-link">
+            @if (item.icon) {
+            <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon></i>
+            }
+            <span class="menu-title">{{ item.label }}</span>
+            <i class="link-arrow"></i>
+          </a>
+          <div class="submenu">
+            <div class="row">
+              @for (subMenu of item.subMenus; track $index) {
+              <div class="col-md-3">
+                <ul class="submenu-item">
+                  @for (subMenuItem of subMenu.subMenuItems; track subMenuItem.label) {
+                  @if (subMenuItem.isTitle) {
+                  <li class="category-heading">{{ subMenuItem.label }}</li>
                   }
-                </div>
+                  @else {
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="subMenuItem.link">{{
+                      subMenuItem.label }}</a>
+                  </li>
+                  }
+                  }
+                </ul>
               </div>
-            </li>
-          }
-
-          <!-- Nav item with no mega menu -->
-          @else {
-            <li class="nav-item" [routerLinkActive]="['active']" #navItem (click)="toggleSubmenuOnSmallDevices(navItem)" [ngClass]="{'show-submenu': currentlyOpenedNavItem === navItem}">
-              
-              <!-- Nav link with a submenu -->
-              @if (hasItems(item)) {
-                <a href="javascript:void(0);" class="nav-link">
-                  @if (item.icon) {
-                    <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon></i>
-                  }
-                  <span class="menu-title">{{ item.label }}</span>
-                  <i class="link-arrow"></i>
-                </a>
-                <div class="submenu">
-                  @for (subMenu of item.subMenus; track $index) {
-                    <ul class="submenu-item">
-                      @for (subMenuItem of subMenu.subMenuItems; track subMenuItem.label) {
-                        @if (subMenuItem.isTitle) {
-                          <li class="category-heading">{{ subMenuItem.label }}</li>
-                        }
-                        @else {
-                          <li class="nav-item">
-                            <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="subMenuItem.link">{{ subMenuItem.label }}</a>
-                            @if (subMenuItem.badge) {
-                              <span class="badge bg-{{subMenuItem.badge.variant}}">{{subMenuItem.badge.text}}</span>
-                            }
-                          </li>
-                        }
-                      }
-                    </ul>
-                  }
-                </div>
               }
+            </div>
+          </div>
+        </li>
+        }
 
-              <!-- Nav link with no submenu  -->
+        <!-- Nav item with no mega menu -->
+        @else {
+        <li class="nav-item" [routerLinkActive]="['active']" #navItem (click)="toggleSubmenuOnSmallDevices(navItem)"
+          [ngClass]="{'show-submenu': currentlyOpenedNavItem === navItem}">
+
+          <!-- Nav link with a submenu -->
+          @if (hasItems(item)) {
+          <a href="javascript:void(0);" class="nav-link">
+            @if (item.icon) {
+            <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon></i>
+            }
+            <span class="menu-title">{{ item.label }}</span>
+            <i class="link-arrow"></i>
+          </a>
+          <div class="submenu">
+            @for (subMenu of item.subMenus; track $index) {
+            <ul class="submenu-item">
+              @for (subMenuItem of subMenu.subMenuItems; track subMenuItem.label) {
+              @if (subMenuItem.isTitle) {
+              <li class="category-heading">{{ subMenuItem.label }}</li>
+              }
               @else {
-                <a class="nav-link" [routerLink]="item.link">
-                  @if (item.icon) {
-                    <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon></i>
-                  }
-                  <span class="menu-title">{{ item.label }}</span>
-                </a>
+              <li class="nav-item">
+                <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="subMenuItem.link">{{ subMenuItem.label
+                  }}</a>
+                @if (subMenuItem.badge) {
+                <span class="badge bg-{{subMenuItem.badge.variant}}">{{subMenuItem.badge.text}}</span>
+                }
+              </li>
               }
-
-            </li>
+              }
+            </ul>
+            }
+          </div>
           }
+
+          <!-- Nav link with no submenu  -->
+          @else {
+          <a class="nav-link" [routerLink]="item.link">
+            @if (item.icon) {
+            <i class="link-icon" [attr.data-feather]="item.icon" appFeatherIcon></i>
+            }
+            <span class="menu-title">{{ item.label }}</span>
+          </a>
+          }
+
+        </li>
+        }
 
         }
 
 
-				<li class="nav-item">
-					<a href="https://www.nobleui.com/angular/documentation/" target="_blank" class="nav-link">
-						<i class="link-icon" data-feather="hash"></i>
-						<span class="menu-title">Documentation</span></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+      </ul>
+    </div>
+  </nav>
 </div>
