@@ -134,20 +134,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let task of tasks; let i = index" [routerLink]="['/tasks', task.id, 'candidatures']">
-                        <td>{{ i + 1 }}</td>
-                        <td>{{ task.title }}</td>
-                        <td>{{ task.createdAt | date: 'mediumDate' }}</td>
-                        <td>
+                    <tr *ngFor="let task of tasks; let i = index" style="cursor: pointer;">
+                        <td [routerLink]="['/tasks', task.id, 'candidatures']">{{ i + 1 }}</td>
+                        <td [routerLink]="['/tasks', task.id, 'candidatures']">{{ task.title }}</td>
+                        <td [routerLink]="['/tasks', task.id, 'candidatures']">{{ task.createdAt | date: 'mediumDate' }}
+                        </td>
+                        <td [routerLink]="['/tasks', task.id, 'candidatures']">
                             <span class="badge" [ngClass]="getStatusBadgeClass(task.status)">
                                 {{ task.status }}
                             </span>
                         </td>
-                        <td>
+                        <td [routerLink]="['/tasks', task.id, 'candidatures']">
                             {{ task.currency }} {{ task.minAmount | number }} - {{ task.maxAmount | number }}
                             <small class="text-muted">({{ task.budgetType }})</small>
                         </td>
-                        <td>
+                        <td [routerLink]="['/tasks', task.id, 'candidatures']">
                             <span *ngFor="let comp of task.competences" class="badge bg-light text-dark me-1">
                                 {{ comp.name }}
                             </span>

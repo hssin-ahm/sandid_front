@@ -45,4 +45,7 @@ export class TaskService {
   getAllTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.baseUrl);
   }
+  markTaskAsComplete(id: number) {
+    return this.http.put(`${this.baseUrl}/${id}/status`, {});
+  }
 }

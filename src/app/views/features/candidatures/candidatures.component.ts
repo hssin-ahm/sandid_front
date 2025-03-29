@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { CandidatureService } from '../candidature.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FeatherIconDirective } from '../../../core/feather-icon/feather-icon.directive';
 import { NotificationService } from './notification.service';
@@ -11,7 +11,7 @@ import { AuthServiceService } from '../auth/login/auth-service.service';
 @Component({
   selector: 'app-candidatures',
   standalone: true,
-  imports: [CommonModule, FeatherIconDirective],
+  imports: [CommonModule, FeatherIconDirective, RouterLink],
   templateUrl: './candidatures.component.html',
   styleUrl: './candidatures.component.scss',
 })

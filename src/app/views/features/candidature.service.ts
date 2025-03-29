@@ -13,6 +13,9 @@ export class CandidatureService {
   getByTaskId(taskId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/task/${taskId}`);
   }
+  getAllCandidatures(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}`);
+  }
 
   confirm(id: number): Observable<any> {
     return this.http.patch(`${this.apiUrl}/${id}/confirm`, {});

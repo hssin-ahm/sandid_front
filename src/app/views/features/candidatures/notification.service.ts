@@ -24,4 +24,12 @@ export class NotificationService {
       },
     });
   }
+
+  getUnreadNotifications(userId: number) {
+    return this.http.get<any[]>(`${this.apiUrl}/${userId}`);
+  }
+
+  markAsRead(notificationId: number) {
+    return this.http.post(`${this.apiUrl}/mark-read/${notificationId}`, {});
+  }
 }
