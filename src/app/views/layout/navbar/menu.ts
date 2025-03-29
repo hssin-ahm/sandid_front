@@ -15,7 +15,20 @@ export const MENU: MenuItem[] = [
   {
     label: 'My tasks',
     icon: 'book',
-    link: '/dashboard',
+    subMenus: [
+      {
+        subMenuItems: [
+          {
+            label: 'List',
+            link: '/task/list',
+          },
+          {
+            label: 'Add',
+            link: '/task/add',
+          },
+        ],
+      },
+    ],
   },
   {
     label: 'Chat',

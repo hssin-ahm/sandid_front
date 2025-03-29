@@ -3,6 +3,7 @@ import { BaseComponent } from './views/layout/base/base.component';
 import { authGuard } from './core/guards/auth.guard';
 import { StarterComponent } from './views/features/starter/starter.component';
 import { ProfileComponent } from './views/features/profile/profile.component';
+import { MytasksComponent } from './views/features/mytasks/mytasks.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
       {
         path: 'profile/:id',
         component: ProfileComponent,
+      },
+      {
+        path: 'task/list',
+        component: MytasksComponent,
       },
     ],
   },
