@@ -23,13 +23,40 @@
             <div class="input-group-text">
               <i class="feather icon-search"></i>
             </div>
-            <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+            <div class="card-body">
+
+              <ng-select [items]="people" bindLabel="username" bindValue="id" [hideSelected]="true"
+                [(ngModel)]="customTemplateSelectedPeople" (change)="onFreelancerSelected($event)"
+                placeholder="Search freelancers...">
+
+                <ng-template ng-label-tmp let-item="item" let-clear="clear">
+                  <span class="ng-value-label">
+                    <img [src]="getFreelancerImage(item.id) || 'https://placehold.co/30x30' " width="20px" height="20px"
+                      style="border-radius: 50%;">
+                    {{item.username}}
+                  </span>
+                  <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">×</span>
+                </ng-template>
+
+                <ng-template ng-option-tmp let-item="item">
+                  <div class="d-flex align-items-center">
+                    <img [src]="getFreelancerImage(item.id)" width="30px" height="30px"
+                      style="border-radius: 50%; margin-right: 10px;">
+                    <div>
+                      <div>{{item.username}}</div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-select>
+
+
+            </div>
           </div>
         </form>
 
         <ul class="navbar-nav">
           <li class="theme-switcher-wrapper nav-item">
-            <input type="checkbox" (change)="onThemeCheckboxChange($event)" value="" id="theme-switcher">
+            <input type="checkbox" (change)="onThemeCheckboxChange($event) " value="" id="theme-switcher">
             <label for="theme-switcher">
               <div class="box">
                 <div class="ball"></div>

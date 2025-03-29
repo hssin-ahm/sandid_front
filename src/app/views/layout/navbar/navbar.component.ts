@@ -7,17 +7,37 @@ import {
 } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ThemeModeService } from '../../../core/services/theme-mode.service';
-import { DOCUMENT, NgClass, NgFor, NgIf } from '@angular/common';
+import {
+  CommonModule,
+  DOCUMENT,
+  NgClass,
+  NgFor,
+  NgIf,
+  UpperCasePipe,
+} from '@angular/common';
 
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
 import { FeatherIconDirective } from '../../../core/feather-icon/feather-icon.directive';
 import { AuthServiceService } from '../../features/auth/login/auth-service.service';
-
+import {
+  NgLabelTemplateDirective,
+  NgOptionTemplateDirective,
+  NgSelectComponent as MyNgSelectComponent,
+} from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import { PeoplesData, Person } from '../../../core/dummy-datas/peoples.data';
+import { HttpClient } from '@angular/common/http';
+interface Freelancer {
+  id: any;
+  username: any;
+  // Add other properties from your API response
+}
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [
+    CommonModule,
     NgbDropdownModule,
     FeatherIconDirective,
     RouterLink,
@@ -25,6 +45,11 @@ import { AuthServiceService } from '../../features/auth/login/auth-service.servi
     NgFor,
     NgIf,
     NgClass,
+    NgLabelTemplateDirective,
+    NgOptionTemplateDirective,
+    MyNgSelectComponent,
+    FormsModule,
+    UpperCasePipe,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
@@ -36,10 +61,13 @@ export class NavbarComponent implements OnInit {
   currentlyOpenedNavItem: HTMLElement | undefined;
 
   constructor(
+    private http: HttpClient,
     private router: Router,
     private themeModeService: ThemeModeService,
     private authService: AuthServiceService
   ) {}
+  people: Freelancer[] = [];
+  customTemplateSelectedPeople: any = null;
 
   ngOnInit(): void {
     this.themeModeService.currentTheme.subscribe((theme) => {
@@ -48,7 +76,8 @@ export class NavbarComponent implements OnInit {
     });
 
     this.menuItems = MENU;
-
+    // simple array
+    this.loadFreelancers();
     /**
      * Close the header menu after a route change on tablet and mobile devices
      */
@@ -66,7 +95,30 @@ export class NavbarComponent implements OnInit {
     });
     // }
   }
+  loadFreelancers(): void {
+    this.http
+      .get<Freelancer[]>('http://localhost:8083/api/user/allfreelancer')
+      .subscribe({
+        next: (freelancers) => {
+          console.log(freelancers);
 
+          this.people = freelancers;
+        },
+        error: (error) => {
+          console.error('Error loading freelancers:', error);
+        },
+      });
+  }
+
+  getFreelancerImage(freelancerId: string): string {
+    return `http://localhost:8083/api/user/${freelancerId}/image`;
+  }
+
+  onFreelancerSelected(event: any): void {
+    if (event && event.id) {
+      this.router.navigate([`/profile/${event.id}`]);
+    }
+  }
   showActiveTheme(theme: string) {
     const themeSwitcher = document.querySelector(
       '#theme-switcher'

@@ -12,7 +12,7 @@
                             [src]="croppedImage || 'http://localhost:8083/api/user/'+userId+'/image'" alt="profile">
                         <span class="h4 ms-3 text-dark">{{firstName}} {{lastName}}</span>
                     </div>
-                    <div class="d-none d-md-block">
+                    <div class="d-none d-md-block" *ngIf="currentUserId == userId">
                         <input hidden type="file" #fileInput (change)="fileChangeEvent($event)">
                         <button class="btn btn-primary btn-icon-text" (click)="fileInput.click()">
                             <i class="feather icon-arrow-up-circle

@@ -8,31 +8,15 @@ import { Candidature } from './condidature';
   providedIn: 'root',
 })
 export class FreelanceService {
-  private apiUrl = 'http://localhost:8083/api';
+  private apiUrl = 'http://localhost:8083/api/candidatures';
 
   constructor(private http: HttpClient) {}
 
-  getAllTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(`${this.apiUrl}/tasks`);
+  create(candidature: any): Observable<any> {
+    return this.http.post(this.apiUrl, candidature);
   }
 
-  getMyApplications(freelanceId: number): Observable<Candidature[]> {
-    return this.http.get<Candidature[]>(
-      `${this.apiUrl}/candidatures/freelance/${freelanceId}`
-    );
-  }
-
-  applyForTask(application: FormData): Observable<Candidature> {
-    return this.http.post<Candidature>(
-      `${this.apiUrl}/candidatures`,
-      application
-    );
-  }
-
-  confirmApplication(id: number): Observable<Candidature> {
-    return this.http.patch<Candidature>(
-      `${this.apiUrl}/candidatures/${id}/confirm`,
-      {}
-    );
+  getByFreelanceId(freelanceId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/freelance/${freelanceId}`);
   }
 }

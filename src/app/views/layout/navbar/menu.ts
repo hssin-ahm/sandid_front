@@ -8,9 +8,9 @@ export const MENU: MenuItem[] = [
   },
 
   {
-    label: 'Browse',
-    icon: 'book',
-    link: '/dashboard',
+    label: 'Home',
+    icon: 'home',
+    link: '/home',
   },
   {
     label: 'My tasks',

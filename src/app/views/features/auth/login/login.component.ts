@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.access_token);
           localStorage.setItem('userId', response.user.id);
           localStorage.setItem('userName', response.user.username);
+          localStorage.setItem('email', response.user.email);
           localStorage.setItem('completed', response.user.completed);
 
           this.router.navigate(['/dashboard']); // Redirect to a secure page

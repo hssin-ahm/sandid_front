@@ -104,7 +104,9 @@ export class ProfileComponent implements OnInit {
     rating: 0,
     comment: '',
   };
+  currentUserId;
   ngOnInit(): void {
+    this.currentUserId = this.authService.getCurrentUserId();
     const user: any = this.authService
       .getUserById(this.userId)
       .subscribe((user) => {

@@ -4,6 +4,8 @@ import { authGuard } from './core/guards/auth.guard';
 import { StarterComponent } from './views/features/starter/starter.component';
 import { ProfileComponent } from './views/features/profile/profile.component';
 import { MytasksComponent } from './views/features/mytasks/mytasks.component';
+import { BrowseComponent } from './views/features/browse/browse.component';
+import { CandidaturesComponent } from './views/features/candidatures/candidatures.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +35,14 @@ export const routes: Routes = [
       {
         path: 'task/list',
         component: MytasksComponent,
+      },
+      {
+        path: 'tasks/:id/candidatures',
+        component: CandidaturesComponent,
+      },
+      {
+        path: 'home',
+        component: BrowseComponent,
       },
     ],
   },
