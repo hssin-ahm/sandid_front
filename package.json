@@ -34,6 +34,7 @@
     "@siemens/ngx-datatable": "^22.4.1",
     "@sweetalert2/ngx-sweetalert2": "^12.4.0",
     "@types/moment": "^2.13.0",
+    "@zegocloud/zego-uikit-prebuilt": "^2.14.3-beta",
     "animate.css": "^4.1.1",
     "apexcharts": "^3.53.0",
     "bootstrap": "^5.3.3",

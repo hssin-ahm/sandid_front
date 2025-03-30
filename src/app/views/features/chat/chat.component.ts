@@ -10,6 +10,7 @@ import { AuthServiceService } from '../auth/login/auth-service.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -21,6 +22,7 @@ import { HttpClient } from '@angular/common/http';
     NgbTooltip,
     CommonModule,
     FormsModule,
+    RouterLink,
   ],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.scss',

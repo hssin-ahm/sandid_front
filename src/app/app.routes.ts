@@ -9,6 +9,7 @@ import { CandidaturesComponent } from './views/features/candidatures/candidature
 import { UserComponent } from './views/features/user/user.component';
 import { MyTaskComponent } from './views/features/my-task/my-task.component';
 import { ChatComponent } from './views/features/chat/chat.component';
+import { VideoCallComponent } from './views/features/chat/video-call/video-call.component';
 
 export const routes: Routes = [
   {
@@ -58,6 +59,10 @@ export const routes: Routes = [
       {
         path: 'chat',
         component: ChatComponent,
+      },
+      {
+        path: 'video-call',
+        component: VideoCallComponent,
       },
     ],
   },
