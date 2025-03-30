@@ -97,8 +97,21 @@ export class StarterComponent implements OnInit {
       dictRemoveFile: 'Delete',
     };
   }
-
+  role;
+  completed;
   ngOnInit(): void {
+    this.role = localStorage.getItem('role');
+    this.completed = localStorage.getItem('completed');
+
+    if (this.completed == undefined || this.completed) {
+      this.router.navigate(['/dashboard']);
+    }
+    if (this.role == 'ROLE_ADMIN') {
+      this.router.navigate(['/dashboard']);
+    } else if (this.role == 'ROLE_CLIENT') {
+      this.router.navigate(['/home']);
+    }
+
     // Personal Info Form
     this.validationForm1 = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -271,9 +284,6 @@ export class StarterComponent implements OnInit {
       })),
     };
     const userId: any = this.authService.getCurrentUserId();
-    console.log(userId);
-
-    console.log('Complete User Data:', userData);
 
     this.userService.updateUser(userData, userId).subscribe({
       next: (response) => {
@@ -287,7 +297,7 @@ export class StarterComponent implements OnInit {
           icon: 'success',
         });
         this.resetForms();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         console.error('Erreur de mise à jour', err.message);

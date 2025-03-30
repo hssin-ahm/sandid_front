@@ -30,6 +30,9 @@ import { PeoplesData, Person } from '../../../core/dummy-datas/peoples.data';
 import { HttpClient } from '@angular/common/http';
 import { NotificationService } from '../../features/candidatures/notification.service';
 import { TimeAgoPipe } from '../../features/user/time-ago.pipe';
+import { MENU_ADMIN } from './menu_admin';
+import { MENU_CLIENT } from './menu_cliient';
+import { MENU_FREELANCER } from './menu_freelancer';
 interface Freelancer {
   id: any;
   username: any;
@@ -62,6 +65,7 @@ export class NavbarComponent implements OnInit {
   menuItems: MenuItem[] = [];
 
   currentlyOpenedNavItem: HTMLElement | undefined;
+  email: any;
 
   constructor(
     private http: HttpClient,
@@ -75,13 +79,26 @@ export class NavbarComponent implements OnInit {
   notifications: any[] = [];
   unreadCount: number = 0;
   currentUserId!: any;
+  role;
+  imagename;
+  username;
   ngOnInit(): void {
+    this.role = localStorage.getItem('role');
+    this.imagename = localStorage.getItem('imageFilename');
+
+    this.username = localStorage.getItem('userName');
+    this.email = localStorage.getItem('email');
     this.themeModeService.currentTheme.subscribe((theme) => {
       this.currentTheme = theme;
       this.showActiveTheme(this.currentTheme);
     });
-
-    this.menuItems = MENU;
+    if (this.role == 'ROLE_ADMIN') {
+      this.menuItems = MENU_ADMIN;
+    } else if (this.role == 'ROLE_CLIENT') {
+      this.menuItems = MENU_CLIENT;
+    } else {
+      this.menuItems = MENU_FREELANCER;
+    }
     // simple array
     this.loadFreelancers();
     /**
@@ -101,9 +118,13 @@ export class NavbarComponent implements OnInit {
     });
     // }
     this.currentUserId = this.authService.getCurrentUserId();
-    console.log(this.currentUserId);
 
     this.loadNotifications();
+  }
+  getUserImageUrl(): string {
+    return this.imagename == 'undefined' || this.imagename == 'null'
+      ? '/profile.jpg'
+      : `http://localhost:8083/api/user/${this.currentUserId}/image`;
   }
   loadNotifications(): void {
     this.notificationService
@@ -141,8 +162,6 @@ export class NavbarComponent implements OnInit {
       .get<Freelancer[]>('http://localhost:8083/api/user/allfreelancer')
       .subscribe({
         next: (freelancers) => {
-          console.log(freelancers);
-
           this.people = freelancers;
         },
         error: (error) => {
@@ -196,6 +215,7 @@ export class NavbarComponent implements OnInit {
    * Logout
    */
   onLogout(e: Event) {
+    localStorage.clear();
     this.authService.logout();
 
     this.router.navigate(['/auth/login']);

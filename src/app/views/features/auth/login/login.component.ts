@@ -32,9 +32,14 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('userId', response.user.id);
           localStorage.setItem('userName', response.user.username);
           localStorage.setItem('email', response.user.email);
+          localStorage.setItem('role', response.user.role);
           localStorage.setItem('completed', response.user.completed);
-
-          this.router.navigate(['/dashboard']); // Redirect to a secure page
+          localStorage.setItem('imageFilename', response.user.imageFilename);
+          if (response.user.completed) {
+            this.router.navigate(['/dashboard']); // Redirect to a secure page
+          } else {
+            this.router.navigate(['/start']); // Redirect to a secure page
+          }
           Swal.fire({
             toast: true,
             position: 'top-end',

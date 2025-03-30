@@ -105,6 +105,7 @@ export class ProfileComponent implements OnInit {
     comment: '',
   };
   currentUserId;
+  imagename;
   ngOnInit(): void {
     this.currentUserId = this.authService.getCurrentUserId();
     const user: any = this.authService
@@ -119,9 +120,10 @@ export class ProfileComponent implements OnInit {
       });
     this.loadReviews();
     this.loadAverageRating();
-
+    this.imagename = localStorage.getItem('imageFilename');
     // Assign values from user object
   }
+
   loadReviews() {
     this.reviewService.getReviews(this.userId).subscribe((reviews) => {
       this.reviews = reviews;
@@ -148,7 +150,12 @@ export class ProfileComponent implements OnInit {
       error: (err) => console.error('Error submitting review:', err),
     });
   }
-
+  getUserImageUrl(): string {
+    console.log(this.imagename);
+    return this.imagename == 'undefined' || this.imagename == 'null'
+      ? '/profile.jpg'
+      : `http://localhost:8083/api/user/${this.userId}/image`;
+  }
   deleteReview(reviewId: number) {
     this.reviewService.deleteReview(reviewId).subscribe({
       next: () => {

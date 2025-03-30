@@ -111,8 +111,12 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
   getOtherUserImage(chat: any): string {
     const otherUserId =
-      chat.user1Id === this.currentUserId ? chat.user2Id : chat.user1Id;
-    return `http://localhost:8083/api/user/${chat.user2Id}/image`;
+      chat.user1Id == this.currentUserId ? chat.user2Id : chat.user1Id;
+    console.log(chat.user1Id);
+    console.log(this.currentUserId);
+    console.log(chat.user1Id === this.currentUserId);
+
+    return `http://localhost:8083/api/user/${otherUserId}/image`;
   }
 
   getOtherUserName(chat: any): string {

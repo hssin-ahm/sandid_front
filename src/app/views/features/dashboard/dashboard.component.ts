@@ -17,6 +17,7 @@ import { TaskService } from '../mytasks/task.service';
 import { CandidatureService } from '../candidature.service';
 import { forkJoin } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 // Add these interfaces
 interface DashboardStats {
   totalFreelancers: number;
@@ -48,11 +49,21 @@ export class DashboardComponent implements OnInit {
   constructor(
     private userService: UserService,
     private taskService: TaskService,
-    private candidatureService: CandidatureService
+    private candidatureService: CandidatureService,
+    private router: Router
   ) {}
-
+  role;
   ngOnInit(): void {
     this.loadData();
+
+    this.role = localStorage.getItem('role');
+    if (this.role == 'ROLE_ADMIN') {
+      this.router.navigate(['/dashboard']);
+    } else if (this.role == 'ROLE_CLIENT') {
+      this.router.navigate(['/home']);
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 
   private loadData(): void {

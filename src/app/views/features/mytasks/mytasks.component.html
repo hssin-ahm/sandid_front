@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink=".">Task</a></li>
-        <li class="breadcrumb-item active" aria-current="page">List of your Task</li>
+        <li class="breadcrumb-item"><a routerLink=".">projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List of your projects</li>
     </ol>
 </nav>
 
@@ -106,7 +106,7 @@
 <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-baseline mb-2">
-            <h6 class="card-title mb-0">Your Tasks</h6>
+            <h6 class="card-title mb-0">Your Project</h6>
             <div ngbDropdown class="mb-2">
                 <a class="no-dropdown-toggle-icon" ngbDropdownToggle id="dropdownMenuButton7">
                     <i class="icon-lg text-secondary pb-3px" data-feather="more-horizontal" appFeatherIcon></i>
@@ -115,7 +115,7 @@
                     <a ngbDropdownItem class="d-flex align-items-center"
                         (click)="openEditModal(undefined, verticalCenteredModal)">
                         <i data-feather="plus-circle" appFeatherIcon class="icon-sm me-2"></i>
-                        <span>Add New Task</span>
+                        <span>Add New Project</span>
                     </a>
                 </div>
             </div>
@@ -166,8 +166,8 @@
                             </div>
                         </td>
                     </tr>
-                    <tr *ngIf="tasks.length === 0">
-                        <td colspan="7" class="text-center">No tasks found</td>
+                    <tr *ngIf="!tasks || tasks.length === 0">
+                        <td colspan="7" class="text-center">No projects found</td>
                     </tr>
                 </tbody>
             </table>
