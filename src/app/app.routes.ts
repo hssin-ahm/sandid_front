@@ -6,6 +6,9 @@ import { ProfileComponent } from './views/features/profile/profile.component';
 import { MytasksComponent } from './views/features/mytasks/mytasks.component';
 import { BrowseComponent } from './views/features/browse/browse.component';
 import { CandidaturesComponent } from './views/features/candidatures/candidatures.component';
+import { UserComponent } from './views/features/user/user.component';
+import { MyTaskComponent } from './views/features/my-task/my-task.component';
+import { ChatComponent } from './views/features/chat/chat.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +46,18 @@ export const routes: Routes = [
       {
         path: 'home',
         component: BrowseComponent,
+      },
+      {
+        path: 'users/list',
+        component: UserComponent,
+      },
+      {
+        path: 'mytasks',
+        component: MyTaskComponent,
+      },
+      {
+        path: 'chat',
+        component: ChatComponent,
       },
     ],
   },

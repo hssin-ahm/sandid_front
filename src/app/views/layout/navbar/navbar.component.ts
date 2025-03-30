@@ -28,6 +28,8 @@ import {
 import { FormsModule } from '@angular/forms';
 import { PeoplesData, Person } from '../../../core/dummy-datas/peoples.data';
 import { HttpClient } from '@angular/common/http';
+import { NotificationService } from '../../features/candidatures/notification.service';
+import { TimeAgoPipe } from '../../features/user/time-ago.pipe';
 interface Freelancer {
   id: any;
   username: any;
@@ -50,6 +52,7 @@ interface Freelancer {
     MyNgSelectComponent,
     FormsModule,
     UpperCasePipe,
+    TimeAgoPipe,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
@@ -64,11 +67,14 @@ export class NavbarComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private themeModeService: ThemeModeService,
-    private authService: AuthServiceService
+    private authService: AuthServiceService,
+    private notificationService: NotificationService
   ) {}
   people: Freelancer[] = [];
   customTemplateSelectedPeople: any = null;
-
+  notifications: any[] = [];
+  unreadCount: number = 0;
+  currentUserId!: any;
   ngOnInit(): void {
     this.themeModeService.currentTheme.subscribe((theme) => {
       this.currentTheme = theme;
@@ -94,6 +100,41 @@ export class NavbarComponent implements OnInit {
       }
     });
     // }
+    this.currentUserId = this.authService.getCurrentUserId();
+    console.log(this.currentUserId);
+
+    this.loadNotifications();
+  }
+  loadNotifications(): void {
+    this.notificationService
+      .getUnreadNotifications(this.currentUserId)
+      .subscribe({
+        next: (notifications) => {
+          this.notifications = notifications;
+          this.unreadCount = notifications.filter((n) => !n.isRead).length;
+        },
+        error: (err) => console.error('Error loading notifications:', err),
+      });
+  }
+
+  markAsRead(notificationId: number): void {
+    this.notificationService.markAsRead(notificationId).subscribe({
+      next: () => {
+        const index = this.notifications.findIndex(
+          (n) => n.id === notificationId
+        );
+        if (index > -1) {
+          this.notifications[index].isRead = true;
+          this.unreadCount--;
+        }
+      },
+      error: (err) => console.error('Error marking notification as read:', err),
+    });
+  }
+
+  markAllAsRead(): void {
+    // Implement this if you add a bulk update endpoint
+    console.log('Implement bulk mark as read functionality');
   }
   loadFreelancers(): void {
     this.http

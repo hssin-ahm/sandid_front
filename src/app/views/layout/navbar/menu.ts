@@ -32,7 +32,17 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'Chat',
-    icon: 'chat',
-    link: '/dashboard',
+    icon: 'message-square',
+    link: '/chat',
+  },
+  {
+    label: 'Users',
+    icon: 'users',
+    link: '/users/list',
+  },
+  {
+    label: 'My Tasks',
+    icon: 'activity',
+    link: '/mytasks',
   },
 ];
