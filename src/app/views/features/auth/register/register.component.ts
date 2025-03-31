@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthServiceService } from '../login/auth-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -46,6 +47,15 @@ export class RegisterComponent {
     this.authService.register(registrationData).subscribe(
       (response: any) => {
         console.log('User registered successfully:', response);
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          title: 'Signup successfully',
+          icon: 'success',
+        });
         this.router.navigate(['/auth/login']); // Redirect to login page after successful registration
       },
       (error) => {

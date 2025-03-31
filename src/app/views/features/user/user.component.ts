@@ -39,15 +39,13 @@ export class UserComponent {
   }
   searchTerm: string = '';
   loadFreelancers(): void {
-    this.http
-      .get<any[]>('http://localhost:8083/api/user/allfreelancer')
-      .subscribe({
-        next: (data) => {
-          this.freelancers = data;
-          this.filteredFreelancers = [...this.freelancers];
-        },
-        error: (err) => console.error('Error loading freelancers:', err),
-      });
+    this.http.get<any[]>('http://localhost:8083/api/user').subscribe({
+      next: (data) => {
+        this.freelancers = data;
+        this.filteredFreelancers = [...this.freelancers];
+      },
+      error: (err) => console.error('Error loading freelancers:', err),
+    });
   }
   confirmDelete(id: number): void {
     Swal.fire({

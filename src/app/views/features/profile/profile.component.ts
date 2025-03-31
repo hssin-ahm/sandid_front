@@ -204,6 +204,8 @@ export class ProfileComponent implements OnInit {
           setTimeout(() => (this.uploadError = false), 3000);
         },
       });
+
+    localStorage.setItem('imageFilename', 'uploaded');
   }
 
   fileChangeEvent(event: any): void {

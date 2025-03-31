@@ -44,7 +44,7 @@
     <div class="card">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-baseline mb-2">
-          <h6 class="card-title mb-0">Recent Tasks</h6>
+          <h6 class="card-title mb-0">Recent Projects</h6>
         </div>
         <div class="table-responsive">
           <table class="table table-hover mb-0">
@@ -64,7 +64,7 @@
                 <td>{{ task.createdAt | date: 'short' }}</td>
               </tr>
               <tr *ngIf="recentTasks.length === 0">
-                <td colspan="4" class="text-center">No recent tasks</td>
+                <td colspan="4" class="text-center">No recent project</td>
               </tr>
             </tbody>
           </table>
@@ -105,7 +105,7 @@
   <div class="col-12 col-xl-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h6 class="card-title mb-0">Tasks Overview</h6>
+        <h6 class="card-title mb-0">Projects Overview</h6>
         <apx-chart [series]="tasksChartOptions.series" [chart]="tasksChartOptions.chart"
           [xaxis]="tasksChartOptions.xaxis" [colors]="tasksChartOptions.colors" [stroke]="tasksChartOptions.stroke"
           [dataLabels]="tasksChartOptions.dataLabels"></apx-chart>

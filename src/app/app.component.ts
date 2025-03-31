@@ -7,11 +7,10 @@ import { ThemeModeService } from './core/services/theme-mode.service';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'demo2';
 
   constructor(private themeModeService: ThemeModeService) {}
-
 }

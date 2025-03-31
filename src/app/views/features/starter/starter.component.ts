@@ -103,7 +103,7 @@ export class StarterComponent implements OnInit {
     this.role = localStorage.getItem('role');
     this.completed = localStorage.getItem('completed');
 
-    if (this.completed == undefined || this.completed) {
+    if (this.completed == '1') {
       this.router.navigate(['/dashboard']);
     }
     if (this.role == 'ROLE_ADMIN') {
